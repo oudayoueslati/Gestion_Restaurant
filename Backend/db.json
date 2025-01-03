@@ -1,0 +1,11 @@
+{
+  "menus": [
+    {
+      "id": 1,
+      "titre": "Menu 1",
+      "description": "Une description détaillée",
+      "approved": false,
+      "mark": 0
+    }
+  ]
+}

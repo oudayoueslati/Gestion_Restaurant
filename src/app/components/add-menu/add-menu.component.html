@@ -1,0 +1,33 @@
+<h1>Menu à proposer</h1>
+<form (ngSubmit)="addMenu()" style="display: flex; flex-direction: column; gap: 10px;">
+  <!-- Champ Titre -->
+  <div style="display: flex; flex-direction: column;">
+    <label for="titre">Titre</label>
+    <input
+      type="text"
+      id="titre"
+      name="titre"
+      [(ngModel)]="titre"
+      required
+      style="flex: 1; max-width: 300px;">
+  </div>
+
+  <!-- Champ Description -->
+  <div style="display: flex; flex-direction: column;">
+    <label for="description">Description</label>
+    <input
+      type="text"
+      id="description"
+      name="description"
+      [(ngModel)]="description"
+      required
+      minlength="10"
+      style="flex: 1; max-width: 300px;">
+    <div *ngIf="description.length > 0 && description.length < 10" style="color: red; font-size: 12px;">
+      La description doit contenir au moins 10 caractères.
+    </div>
+  </div>
+
+  <!-- Bouton Ajouter -->
+  <button type="submit" [disabled]="isSubmitting" style="align-self: flex-start;">Ajouter</button>
+</form>
