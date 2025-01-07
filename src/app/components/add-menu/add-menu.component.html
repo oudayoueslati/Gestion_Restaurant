@@ -1,15 +1,14 @@
-<h1>Menu a proposer </h1>
-<form #menuForm="ngForm">
+<h1>Menu à proposer</h1>
+<form #menuForm="ngForm" (ngSubmit)="addMenu()">
     <div style="display: flex; flex-direction: column;">
         <label for="name">Titre</label>
         <input 
             type="text" 
             id="Titre" 
-            name="Titre" 
-            ngModel 
+            name="titre" 
+            [(ngModel)]="titre" 
             #Titre="ngModel" 
             required
-            pattern="[a-zA-Z0-9]*"
             style="flex: 1; max-width: 300px;">
         <div *ngIf="Titre.invalid && Titre.touched" style="color: red; font-size: 12px;">
             <div *ngIf="Titre.errors?.['required']">Titre est obligatoire.</div>
@@ -20,8 +19,8 @@
         <input 
             type="text" 
             id="Description" 
-            name="Description" 
-            ngModel
+            name="description" 
+            [(ngModel)]="description" 
             #Description="ngModel"
             required
             minlength="10"
@@ -33,7 +32,6 @@
     </div>
     <button 
         type="submit" 
-        [disabled]="menuForm.invalid"
+        [disabled]="menuForm.invalid || isSubmitting"
         style="align-self: flex-start;">Ajouter</button>
 </form>
-

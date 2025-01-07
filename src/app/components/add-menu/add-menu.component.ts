@@ -8,29 +8,29 @@ import { MenuService } from '../../service/menu.service';
 })
 export class AddMenuComponent {
   titre: string = '';
-  description: string = '';
+  description: string = ''; 
   isSubmitting: boolean = false;
 
   constructor(private menuService: MenuService) {}
 
   addMenu() {
-    if (!this.titre || this.description.length < 10) {
+    if (!this.titre.trim() || this.description.trim().length < 10) {
       alert('Veuillez remplir les champs correctement.');
       return;
     }
 
     const newMenu = {
-      titre: this.titre,
-      description: this.description,
+      titre: this.titre.trim(),
+      description: this.description.trim(),
       approved: false,
-      mark: 0
+      mark: 0,
     };
 
     this.isSubmitting = true;
     this.menuService.addMenu(newMenu).subscribe({
       next: () => {
         alert('Menu ajouté avec succès !');
-        this.titre = '';
+        this.titre = ''; 
         this.description = '';
         this.isSubmitting = false;
       },

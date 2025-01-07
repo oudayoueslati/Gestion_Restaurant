@@ -9,4 +9,13 @@ import { Menu } from '../../service/menu.service';
 export class MenuComponent {
 
   @Input() menu!: Menu;
+  viewDetails() {
+    alert(`Détails du menu: ${this.menu.titre}`);
+   
+  }
+
+  reserveMenu() {
+    alert(`Réservation pour le menu: ${this.menu.titre}`);
+  
+  }
 }

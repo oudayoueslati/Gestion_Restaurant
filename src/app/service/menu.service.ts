@@ -19,11 +19,15 @@ export class MenuService {
 
   constructor(private http: HttpClient) {}
 
-  addMenu(menu: { titre: string; description: string; approved: boolean; mark: number }): Observable<any> {
+  addMenu(menu: any): Observable<any> {
     return this.http.post(this.apiUrl, menu);
   }
 
   getApprovedMenus(): Observable<Menu[]> {
     return this.http.get<Menu[]>(this.apiUrl);
+  }
+
+  getMenuById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 }
