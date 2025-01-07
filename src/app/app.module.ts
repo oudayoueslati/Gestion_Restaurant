@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MenuDetailsComponent } from './components/menu-details/menu-details.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { MenuDetailsComponent } from './components/menu-details/menu-details.com
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule
     
   ],
   providers: [],

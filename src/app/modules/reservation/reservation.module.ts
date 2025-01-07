@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ReservationRoutingModule } from './reservation-routing.module';
 import { ListReservationsComponent } from '../../components/list-reservations/list-reservations.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ListReservationsComponent } from '../../components/list-reservations/li
   ],
   imports: [
     CommonModule,
-    ReservationRoutingModule
+    ReservationRoutingModule,
+    HttpClientModule
   ]
 })
 export class ReservationModule { }

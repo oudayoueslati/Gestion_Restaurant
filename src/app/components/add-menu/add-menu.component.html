@@ -1,33 +1,39 @@
-<h1>Menu à proposer</h1>
-<form (ngSubmit)="addMenu()" style="display: flex; flex-direction: column; gap: 10px;">
-  <!-- Champ Titre -->
-  <div style="display: flex; flex-direction: column;">
-    <label for="titre">Titre</label>
-    <input
-      type="text"
-      id="titre"
-      name="titre"
-      [(ngModel)]="titre"
-      required
-      style="flex: 1; max-width: 300px;">
-  </div>
-
-  <!-- Champ Description -->
-  <div style="display: flex; flex-direction: column;">
-    <label for="description">Description</label>
-    <input
-      type="text"
-      id="description"
-      name="description"
-      [(ngModel)]="description"
-      required
-      minlength="10"
-      style="flex: 1; max-width: 300px;">
-    <div *ngIf="description.length > 0 && description.length < 10" style="color: red; font-size: 12px;">
-      La description doit contenir au moins 10 caractères.
+<h1>Menu a proposer </h1>
+<form #menuForm="ngForm">
+    <div style="display: flex; flex-direction: column;">
+        <label for="name">Titre</label>
+        <input 
+            type="text" 
+            id="Titre" 
+            name="Titre" 
+            ngModel 
+            #Titre="ngModel" 
+            required
+            pattern="[a-zA-Z0-9]*"
+            style="flex: 1; max-width: 300px;">
+        <div *ngIf="Titre.invalid && Titre.touched" style="color: red; font-size: 12px;">
+            <div *ngIf="Titre.errors?.['required']">Titre est obligatoire.</div>
+        </div>
     </div>
-  </div>
-
-  <!-- Bouton Ajouter -->
-  <button type="submit" [disabled]="isSubmitting" style="align-self: flex-start;">Ajouter</button>
+    <div style="display: flex; flex-direction: column;">
+        <label for="Description">Description</label>
+        <input 
+            type="text" 
+            id="Description" 
+            name="Description" 
+            ngModel
+            #Description="ngModel"
+            required
+            minlength="10"
+            style="flex: 1; max-width: 300px;">
+        <div *ngIf="Description.invalid && Description.touched" style="color: red; font-size: 12px;">
+            <div *ngIf="Description.errors?.['required']">Description est obligatoire.</div>
+            <div *ngIf="Description.errors?.['minlength']">Description doit contenir au moins 10 caractères.</div>
+        </div>
+    </div>
+    <button 
+        type="submit" 
+        [disabled]="menuForm.invalid"
+        style="align-self: flex-start;">Ajouter</button>
 </form>
+

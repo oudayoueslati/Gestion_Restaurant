@@ -1,10 +1,24 @@
 {
   "menus": [
     {
-      "id": 1,
+      "id": "1",
       "titre": "Menu 1",
       "description": "Une description détaillée",
       "approved": false,
+      "mark": 0
+    },
+    {
+      "id": "2",
+      "titre": "Menu 2",
+      "description": "Une description détaillée",
+      "approved": true,
+      "mark": 0
+    },
+    {
+      "id": "3d76",
+      "titre": "fgh",
+      "description": "dfjvhfj",
+      "approved": true,
       "mark": 0
     }
   ]
